@@ -1,0 +1,22 @@
+﻿@model UserModel
+@{
+    ViewData["Title"] = "Login";
+    var returnUrl = TempData["ReturnUrl"] as string;
+}
+
+<div class="container-fluid mt-5">
+    <form asp-action="Login" method="post" asp-route-returnUrl="@returnUrl" method="post" class="col-5" style="margin-left:25%; margin-right:25%; width:50%">
+        <div class="mb-3">
+            <label asp-for="@Model.user.Email" class="form-label">Email address</label>
+            <input asp-for="@Model.user.Email" type="email" class="form-control" placeholder="example@gmail.com">
+            <div class="form-text">We'll never share your email with anyone else.</div>
+            <span class="text-danger" asp-validation-for="@Model.user.Email"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.user.Password" class="form-label">Password</label>
+            <input asp-for="@Model.user.Password" type="password" class="form-control" id="exampleInputPassword1">
+        </div>  
+        <button type="submit" class="btn btn-primary">Login</button>
+        <span>You don't have account?<a asp-action="Signup" asp-controller="Auth">Sign up</a></span>
+    </form>
+</div>

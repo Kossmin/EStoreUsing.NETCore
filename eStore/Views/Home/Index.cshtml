@@ -1,0 +1,35 @@
+﻿@model ProductListModel
+@{
+
+}
+
+<div class="row">
+    <div class="container col-3 d-inline-block mt-3 rounded">
+        <div class="row">
+            <form class="d-flex flex-column" asp-action="Index" asp-controller="Home" method="post">
+                <input name="productname" class="form-control me-2" type="search" placeholder="Search by name" aria-label="Search">
+                <label for="pricerange" class="col-form-label">Price</label>
+                <input type="range" name="price" class="form-control-range" min="0" max="9999999999999999999" id="pricerange" step="1" />
+                <button class="btn btn-dark" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container col-9 d-inline-block">
+        <div class="row mt-3">
+            @{
+                foreach (var item in Model.Products)
+                {
+                    <div class="card m-1" style="width: 16rem">
+                        <img src="@item.CoverImgUrl" class="card-img-top" alt="@item.ProductName">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.ProductName</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a asp-action="Add" asp-route-id="@item.ProductId" asp-controller="Cart" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

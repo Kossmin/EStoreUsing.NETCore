@@ -1,0 +1,86 @@
+﻿@model CartModel
+
+@{
+}
+@{
+    foreach (var item in Model.Orders)
+    {
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="@item.OrderId">
+            <button class="accordion-button" type="button" data-toggle="collapse" data-target="#order-@item.OrderId" aria-expanded="true" aria-controls="collapseOne">
+                Order number #@item.OrderId
+            </button>
+        </h2>
+        @{
+            if (item.isOrdered == false)
+            {
+                <div id="order-@item.OrderId" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+                    <div class="accordion-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Unit Price</th>
+                                    <th scope="col">Quantity</th>
+                                </tr>
+                            </thead>
+                            @{
+                                var orderdetailObject = (from a in Model.OrderDetails where a.OrderId == item.OrderId select a).ToList().OrderBy(p => p.ProductId);
+                                foreach (var orderdetail in orderdetailObject)
+                                {
+
+                                    <tbody>
+                                        <tr>
+                                            <td>@orderdetail.Product.ProductName</td>
+                                            <td>@orderdetail.Product.UnitPrice</td>
+                                            <td>@orderdetail.Quantity</td>
+                                        </tr>
+                                    </tbody>
+                                }
+
+
+                            }
+                        </table>
+
+                    </div>
+                </div> }
+            else
+            {
+                <div id="order-@item.OrderId" class="accordion-collapse collapse" aria-labelledby="headingOne">
+                    <div class="accordion-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Unit Price</th>
+                                    <th scope="col">Quantity</th>
+                                </tr>
+                            </thead>
+                            @{
+                                var orderdetailObject = (from a in Model.OrderDetails where a.OrderId == item.OrderId select a).ToList().OrderBy(p => p.ProductId);
+                                foreach (var orderdetail in orderdetailObject)
+                                {
+
+                                    <tbody>
+                                        <tr>
+                                            <td>@orderdetail.Product.ProductName</td>
+                                            <td>@orderdetail.Product.UnitPrice</td>
+                                            <td>@orderdetail.Quantity</td>
+                                        </tr>
+                                    </tbody>
+                                }
+                            }
+                        </table>
+
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    }
+    if ((Model.Orders.FirstOrDefault(p => p.isOrdered == false)) != null)
+    {
+        <a class="btn btn-success" asp-action="Checkout" asp-controller="Cart">Check out</a>
+    }
+}

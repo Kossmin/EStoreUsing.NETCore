@@ -1,0 +1,16 @@
+D:\Demo\Ass03Solution\BusinessObject\bin\Debug\net5.0\appsettings.json
+D:\Demo\Ass03Solution\BusinessObject\bin\Debug\net5.0\BusinessObject.deps.json
+D:\Demo\Ass03Solution\BusinessObject\bin\Debug\net5.0\BusinessObject.runtimeconfig.json
+D:\Demo\Ass03Solution\BusinessObject\bin\Debug\net5.0\BusinessObject.runtimeconfig.dev.json
+D:\Demo\Ass03Solution\BusinessObject\bin\Debug\net5.0\BusinessObject.dll
+D:\Demo\Ass03Solution\BusinessObject\bin\Debug\net5.0\ref\BusinessObject.dll
+D:\Demo\Ass03Solution\BusinessObject\bin\Debug\net5.0\BusinessObject.pdb
+D:\Demo\Ass03Solution\BusinessObject\obj\Debug\net5.0\BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+D:\Demo\Ass03Solution\BusinessObject\obj\Debug\net5.0\BusinessObject.AssemblyInfoInputs.cache
+D:\Demo\Ass03Solution\BusinessObject\obj\Debug\net5.0\BusinessObject.AssemblyInfo.cs
+D:\Demo\Ass03Solution\BusinessObject\obj\Debug\net5.0\BusinessObject.csproj.CoreCompileInputs.cache
+D:\Demo\Ass03Solution\BusinessObject\obj\Debug\net5.0\BusinessObject.dll
+D:\Demo\Ass03Solution\BusinessObject\obj\Debug\net5.0\ref\BusinessObject.dll
+D:\Demo\Ass03Solution\BusinessObject\obj\Debug\net5.0\BusinessObject.pdb
+D:\Demo\Ass03Solution\BusinessObject\obj\Debug\net5.0\BusinessObject.genruntimeconfig.cache
+D:\Demo\Ass03Solution\BusinessObject\obj\Debug\net5.0\BusinessObject.csprojAssemblyReference.cache

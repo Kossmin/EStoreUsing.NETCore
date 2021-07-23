@@ -1,0 +1,92 @@
+﻿@model ProductListModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container-fluid my-4">
+
+    <a asp-action="Add" asp-controller="Product">
+        <button type="button" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Add
+        </button>
+    </a>
+    <!--
+    <a asp-action="AddBlob" asp-controller="Product">
+        <button type="button" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Add Blob
+        </button>
+    </a>
+    -->
+    <div class="row justify-content-end">
+        <form class="d-flex flex-row" asp-action="Index" asp-controller="Product" method="post">
+            <input name="productname" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button  class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+</div>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">CategoryId</th>
+            <th scope="col">Name</th>
+            <th scope="col">Weigth</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model.Products)
+            {
+                <tr>
+                    <th scope="row">@item.ProductId</th>
+                    @{if (item.UnitInStock <= 15)
+                        {
+                            <td class="bg-danger">@item.CategoryId</td>
+                        }
+                        else
+                        {
+                            <td>@item.CategoryId</td>
+                        }
+                    }
+                    <td>@item.ProductName</td>
+                    <td>@item.Weight</td>
+                    <td>@item.UnitPrice</td>
+                    <td>@item.UnitInStock</td>
+                    <td>
+                        <span><a asp-route-id="@item.ProductId" asp-action="Detail"><i class="fas fa-info"></i></a></span>
+                        <span class="ml-3">
+                            <a type="button" data-toggle="modal" data-target="#pro-@item.ProductId">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </span>
+                    </td>
+                </tr>
+                <div class="modal fade" id="pro-@item.ProductId" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Are you sure?</h5>
+                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                This product will be deleted pernamently
+                            </div>
+                            <div class="modal-footer">
+                                <a type="button" asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-secondary">Yes</a>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </tbody>
+</table>
