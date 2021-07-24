@@ -75,7 +75,7 @@ namespace DataAccess
             }
         }
 
-        public IEnumerable<OrderObject> GetOrders => FStoreContext.Orders.Include(p => p.Member).OrderBy(p => p.OrderId);
+        public IEnumerable<OrderObject> GetOrders => FStoreContext.Orders.Include(p => p.OrderDetails).ThenInclude(or=>or.Product).Include(p=>p.Member).OrderBy(p => p.OrderId);
 
         public void UpdateOrder(OrderObject order)
         {

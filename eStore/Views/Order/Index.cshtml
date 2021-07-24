@@ -1,0 +1,43 @@
+﻿@model OrderListModel
+@{
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Client'mail</th>
+            <th scope="col">Number of products</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model.Orders)
+            {
+                <tr>
+                    <th scope="row">@item.OrderId</th>
+                    <td>@item.Member.Email</td>
+                    <td>
+                        <details>
+                            <summary>Detail</summary>
+                            <table class="table">
+                                <tbody>
+                                    @{
+                                        foreach (var item2 in item.OrderDetails)
+                                        {
+                                            <tr>
+                                                <td>@item2.Product.ProductName</td>
+                                                <td>@item2.Quantity</td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </details>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+

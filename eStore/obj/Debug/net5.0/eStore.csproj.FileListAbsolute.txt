@@ -87,3 +87,4 @@ D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\Razor\Views\Auth\Login.cshtml.g.cs
 D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\Razor\Views\Auth\Signup.cshtml.g.cs
 D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
+D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\Razor\Views\Order\Index.cshtml.g.cs

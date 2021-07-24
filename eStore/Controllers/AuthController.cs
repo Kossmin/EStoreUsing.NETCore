@@ -30,8 +30,16 @@ namespace eStore.Controllers
         [HttpPost]
         public IActionResult Signup(MemberObject user)
         {
-            _memberRepository.InsertMember(user);
-            return Redirect("/home");
+            try
+            {
+                _memberRepository.InsertMember(user);
+                return Redirect("/home");
+            }
+            catch (Exception)
+            {
+                TempData["Error"] = "Invalid Id/Password";
+                return RedirectToAction("Signup");
+            }
         }
 
         [Authorize]
