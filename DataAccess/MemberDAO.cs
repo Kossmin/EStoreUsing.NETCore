@@ -74,7 +74,7 @@ namespace DataAccess
         {
             if (GetMemberByID(member.MemberId) == null && GetMemberByEmail(member.Email) == null)
             {
-                FStoreContext.Members.Add(member);
+                AddMemberToList(FStoreContext.Members.ToList(), member);
                 FStoreContext.SaveChanges();
             }
             else
@@ -82,6 +82,11 @@ namespace DataAccess
                 throw new Exception("Member ID/Email is already exists.");
 
             }
+        }
+
+        public void AddMemberToList(List<MemberObject> members, MemberObject member)
+        {
+            members.Add(member);
         }
 
         public void UpdateMember(MemberObject member)

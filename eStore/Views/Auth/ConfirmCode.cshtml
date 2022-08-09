@@ -1,0 +1,47 @@
+﻿@model UserModel
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+
+<form asp-action="ConfirmCode" method="post">
+    <label asp-for="inputComfirmationCode"></label>
+    <input required asp-for="inputComfirmationCode" type="text" />
+    <div hidden>
+        <label asp-for=user.City></label>
+        <input hidden asp-for=user.City type="text" />
+        <label asp-for=user.CompanyName></label>
+        <input hidden asp-for=user.CompanyName type="text" />
+        <label asp-for=user.Country></label>
+        <input hidden asp-for=user.Country type="text" />
+        <label asp-for=user.Email></label>
+        <input hidden asp-for=user.Email type="text" />
+        <label asp-for=user.Password></label>
+        <input hidden asp-for=user.Password type="text" />
+        <label asp-for=confirmationCode></label>
+        <input hidden asp-for=confirmationCode type="text" />
+    </div>
+    <button type="submit">Done</button>
+</form>
+
+<form asp-action="Resend" method="post">
+    <div hidden>
+        <label asp-for=user.City></label>
+        <input hidden asp-for=user.City type="text" />
+        <label asp-for=user.CompanyName></label>
+        <input hidden asp-for=user.CompanyName type="text" />
+        <label asp-for=user.Country></label>
+        <input hidden asp-for=user.Country type="text" />
+        <label asp-for=user.Email></label>
+        <input hidden asp-for=user.Email type="text" />
+        <label asp-for=user.Password></label>
+        <input hidden asp-for=user.Password type="text" />
+        <label asp-for=confirmationCode></label>
+        <input hidden asp-for=confirmationCode type="text" />
+    </div>
+    <button type="submit">Resend email</button>
+</form>
+

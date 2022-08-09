@@ -2,7 +2,6 @@
 using DataAccess.Repository;
 using eStore.AzureBlob;
 using eStore.Models;
-using eStore.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +19,8 @@ namespace eStore.Controllers
     {
         IProductRepository _productRepository = new ProductRepository();
         IBlobService _blobService;
+        const string CONTAINERNAME = "imagecontainer";
+        const string STORAGEACCOUNTNAME = "estoreimagecontainer";
 
         public ProductController(IBlobService blobService)
         {
@@ -53,9 +54,9 @@ namespace eStore.Controllers
                 if (file == null || file.Length < 1) return View();
                 _productRepository.AddNew(_productObject);
                 var fileName = _productObject.ProductId + Path.GetExtension(file.FileName);
-                await _blobService.UploadBlob(fileName, file, "demodb");
+                await _blobService.UploadBlob(fileName, file, CONTAINERNAME);
             
-                _productObject.CoverImgUrl = "https://mystockdb.blob.core.windows.net/demodb/" + fileName;
+                _productObject.CoverImgUrl = $"https://{STORAGEACCOUNTNAME}.blob.core.windows.net/{CONTAINERNAME}/" + fileName;
                 _productRepository.Update(_productObject);
                 return Redirect(returnUrl);
             }
@@ -82,8 +83,8 @@ namespace eStore.Controllers
             {
                 if (file == null || file.Length < 1) return RedirectToAction("Detail");
                 var fileName = _productObject.ProductId + Path.GetExtension(file.FileName);
-                await _blobService.UploadBlob(fileName, file, "demodb");
-                _productObject.CoverImgUrl = "https://mystockdb.blob.core.windows.net/demodb/" + fileName; ;
+                await _blobService.UploadBlob(fileName, file, CONTAINERNAME);
+                _productObject.CoverImgUrl = $"https://{STORAGEACCOUNTNAME}.blob.core.windows.net/{CONTAINERNAME}/" + fileName;
                 _productRepository.Update(_productObject);
                 return RedirectToAction("Index");
             }
@@ -98,7 +99,7 @@ namespace eStore.Controllers
             var product = _productRepository.GetProductById(id);
             _productRepository.Delete(product.ProductId);
              string[] words = product.CoverImgUrl.Split("/");
-            _blobService.DeleteBlob(words.Last(), "demodb");
+            _blobService.DeleteBlob(words.Last(), CONTAINERNAME);
 
             return RedirectToAction("Index");
         }

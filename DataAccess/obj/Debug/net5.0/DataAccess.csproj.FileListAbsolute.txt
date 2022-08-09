@@ -7,7 +7,6 @@ D:\Demo\Ass03Solution\DataAccess\bin\Debug\net5.0\ref\DataAccess.dll
 D:\Demo\Ass03Solution\DataAccess\bin\Debug\net5.0\DataAccess.pdb
 D:\Demo\Ass03Solution\DataAccess\bin\Debug\net5.0\BusinessObject.dll
 D:\Demo\Ass03Solution\DataAccess\bin\Debug\net5.0\BusinessObject.pdb
-D:\Demo\Ass03Solution\DataAccess\obj\Debug\net5.0\DataAccess.csprojAssemblyReference.cache
 D:\Demo\Ass03Solution\DataAccess\obj\Debug\net5.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
 D:\Demo\Ass03Solution\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfoInputs.cache
 D:\Demo\Ass03Solution\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfo.cs
@@ -17,3 +16,4 @@ D:\Demo\Ass03Solution\DataAccess\obj\Debug\net5.0\DataAccess.dll
 D:\Demo\Ass03Solution\DataAccess\obj\Debug\net5.0\ref\DataAccess.dll
 D:\Demo\Ass03Solution\DataAccess\obj\Debug\net5.0\DataAccess.pdb
 D:\Demo\Ass03Solution\DataAccess\obj\Debug\net5.0\DataAccess.genruntimeconfig.cache
+D:\Demo\Ass03Solution\DataAccess\obj\Debug\net5.0\DataAccess.csproj.AssemblyReference.cache

@@ -10,5 +10,8 @@ namespace eStore.Models
     public class UserModel
     {
         public MemberObject user;
+        public string confirmationCode;
+        [Display(Name ="Verification Code")]
+        public string inputComfirmationCode;
     }
 }

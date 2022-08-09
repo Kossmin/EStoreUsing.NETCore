@@ -26,7 +26,7 @@ namespace BusinessObject
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
             IConfiguration configuration = builder.Build();
-            optionsBuilder.UseSqlServer("Server=tcp:mystockdbserver.database.windows.net,1433;Initial Catalog=MyStockDB;Persist Security Info=False;User ID=mystockdb;Password=sonTPKSE151317;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            optionsBuilder.UseSqlServer("server =(local); database = MyStockDB;uid=sa;pwd=123456;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

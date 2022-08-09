@@ -9,7 +9,6 @@ D:\Demo\Ass03Solution\eStore\bin\Debug\net5.0\ref\eStore.dll
 D:\Demo\Ass03Solution\eStore\bin\Debug\net5.0\eStore.pdb
 D:\Demo\Ass03Solution\eStore\bin\Debug\net5.0\eStore.Views.dll
 D:\Demo\Ass03Solution\eStore\bin\Debug\net5.0\eStore.Views.pdb
-D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\eStore.csprojAssemblyReference.cache
 D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\eStore.GeneratedMSBuildEditorConfig.editorconfig
 D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\eStore.AssemblyInfoInputs.cache
 D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\eStore.AssemblyInfo.cs
@@ -18,7 +17,6 @@ D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\eStore.MvcApplicationPartsAssembly
 D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\eStore.RazorAssemblyInfo.cache
 D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\eStore.RazorAssemblyInfo.cs
 D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\staticwebassets\eStore.StaticWebAssets.Manifest.cache
-D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\staticwebassets\eStore.StaticWebAssets.xml
 D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\scopedcss\bundle\eStore.styles.css
 D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\eStore.TagHelpers.input.cache
 D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\eStore.TagHelpers.output.cache
@@ -88,3 +86,7 @@ D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\Razor\Views\Auth\Login.cshtml.g.cs
 D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\Razor\Views\Auth\Signup.cshtml.g.cs
 D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
 D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\Razor\Views\Order\Index.cshtml.g.cs
+D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\Razor\Views\Auth\ConfirmCode.cshtml.g.cs
+D:\Demo\Ass03Solution\eStore\bin\Debug\net5.0\SendGrid.dll
+D:\Demo\Ass03Solution\eStore\bin\Debug\net5.0\StarkbankEcdsa.dll
+D:\Demo\Ass03Solution\eStore\obj\Debug\net5.0\eStore.csproj.AssemblyReference.cache

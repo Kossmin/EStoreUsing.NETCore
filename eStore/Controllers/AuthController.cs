@@ -5,12 +5,14 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-
 namespace eStore.Controllers
 {
     public class AuthController : Controller
@@ -28,17 +30,74 @@ namespace eStore.Controllers
         }
 
         [HttpPost]
-        public IActionResult Signup(MemberObject user)
+        public async Task<IActionResult> Signup(MemberObject user)
         {
-            try
+            if (ModelState.IsValid && (_memberRepository.GetMemberByEmail(user.Email)==null))
+            {
+                try
+                {
+                    var code = Guid.NewGuid().ToString();
+                    var client = new SendGridClient("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");
+                    var from = new EmailAddress("phamsn2001@gmail.com");
+                    var to = new EmailAddress(user.Email);
+                    var subject = "Confirmation code";
+                    var text = code;
+                    var textHTML = code;
+                    var msg = MailHelper.CreateSingleEmail(from, to, subject, text, textHTML);
+                    var response = await client.SendEmailAsync(msg);
+                    TempData["PopupMessages"] = JsonConvert.SerializeObject(user);
+                    TempData["code"] = code;
+                    return RedirectToAction("confirmcode");
+                }
+                catch (Exception)
+                {
+                    TempData["Error"] = "Invalid Id/Password";
+                    return RedirectToAction("Signup");
+                }
+            }
+            TempData["Error"] = "Invalid Username";
+            return RedirectToAction("Signup");
+        }
+
+        public IActionResult ConfirmCode()
+        {
+            MemberObject tmp = JsonConvert.DeserializeObject<MemberObject>(TempData["PopupMessages"] as string);
+            return View(new UserModel
+            {
+                user = tmp,
+                confirmationCode = TempData["code"] as string
+            });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Resend(MemberObject user)
+        {
+            var code = Guid.NewGuid().ToString();
+            var client = new SendGridClient("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");
+            var from = new EmailAddress("phamsn2001@gmail.com");
+            var to = new EmailAddress(user.Email);
+            var subject = "Confirmation code";
+            var text = code;
+            var textHTML = code;
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, text, textHTML);
+            var response = await client.SendEmailAsync(msg);
+            TempData["PopupMessages"] = JsonConvert.SerializeObject(user);
+            TempData["code"] = code;
+            return RedirectToAction("confirmcode");
+        }
+
+        [HttpPost]
+        public IActionResult ConfirmCode(MemberObject user, string confirmationCode, string inputConfirmationCode)
+        {
+            if(confirmationCode == inputConfirmationCode)
             {
                 _memberRepository.InsertMember(user);
                 return Redirect("/home");
             }
-            catch (Exception)
+            else
             {
-                TempData["Error"] = "Invalid Id/Password";
-                return RedirectToAction("Signup");
+                TempData["Error"] = "Wrong Code";
+                return RedirectToAction("ConfirmCode");
             }
         }
 
@@ -69,7 +128,7 @@ namespace eStore.Controllers
                     .AuthenticationScheme);
                 var claimsPricipal = new ClaimsPrincipal(claimsIdentity);
                 await HttpContext.SignInAsync(claimsPricipal);
-                return Redirect(returnUrl);
+                return Redirect("product");
             }else if (_memberRepository.GetMembers().FirstOrDefault(m=>m.Email==user.Email && m.Password == user.Password) !=null)
             {
                 var claims = new List<Claim>();

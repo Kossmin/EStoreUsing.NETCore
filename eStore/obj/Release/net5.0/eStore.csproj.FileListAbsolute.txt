@@ -87,3 +87,4 @@ D:\Demo\Ass03Solution\eStore\obj\Release\net5.0\eStore.dll
 D:\Demo\Ass03Solution\eStore\obj\Release\net5.0\ref\eStore.dll
 D:\Demo\Ass03Solution\eStore\obj\Release\net5.0\eStore.pdb
 D:\Demo\Ass03Solution\eStore\obj\Release\net5.0\eStore.genruntimeconfig.cache
+D:\Demo\Ass03Solution\eStore\obj\Release\net5.0\Razor\Views\Order\Index.cshtml.g.cs

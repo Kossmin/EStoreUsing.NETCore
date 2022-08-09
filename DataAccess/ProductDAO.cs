@@ -95,6 +95,7 @@ namespace DataAccess
                 pro.UnitInStock = product.UnitInStock;
                 pro.UnitPrice = product.UnitPrice;
                 pro.Weight = product.Weight;
+                pro.CoverImgUrl = product.CoverImgUrl;
                 fStoreContext.SaveChanges();
             }
             else
